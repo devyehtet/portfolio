@@ -21,13 +21,6 @@ export default function Home() {
     setFormStatus(result)
   }
 
-  const socialLinks = [
-    { Icon: FaGithub, href: 'https://github.com/devyehtet', label: 'GitHub' },
-    { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/y3htetaung/', label: 'LinkedIn' },
-    { Icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=61559225011515', label: 'Facebook' },
-    { Icon: FaEnvelope, href: 'mailto:info@yehtet.com', label: 'Email' }
-  ]
-
   return (
     <div className="min-h-screen flex flex-col bg-emerald-950 text-white">
       <header className="bg-emerald-900 p-4 sticky top-0 z-50">
@@ -93,7 +86,12 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex justify-center space-x-4 sm:space-x-6"
           >
-            {socialLinks.map(({ Icon, href, label }) => (
+            {[
+              { Icon: FaGithub, href: 'https://github.com/devyehtet', label: 'GitHub' },
+              { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/y3htetaung/', label: 'LinkedIn' },
+              { Icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=61559225011515', label: 'Facebook' },
+              { Icon: FaEnvelope, href: 'mailto:info@yehtet.com', label: 'Email' }
+            ].map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
