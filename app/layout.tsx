@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
 const inter = Inter({ 
   subsets: ['latin'], 
-  variable: '--font-inter' 
+  variable: '--font-inter'
 })
 
-const poppins = Poppins({ 
-  weight: ['400', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-poppins'
+const funnelDisplay = localFont({
+  src: '../public/fonts/FunnelDisplay-Medium.ttf',
+  variable: '--font-funnel-display'
 })
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${funnelDisplay.variable}`}>
       <body className={`${inter.className} bg-emerald-950 text-white`}>
         {children}
       </body>
