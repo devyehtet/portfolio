@@ -8,6 +8,14 @@
   --background-end-rgb: 1, 42, 35;
 }
 
+/* Define FunnelDisplay font */
+@font-face {
+  font-family: 'FunnelDisplay';
+  src: url('/fonts/FunnelDisplay.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -16,6 +24,7 @@ body {
     rgb(var(--background-end-rgb))
   );
   min-height: 100vh;
+  font-family: 'FunnelDisplay', sans-serif; /* Apply font globally */
 }
 
 /* Smooth scrolling for the entire page */
@@ -49,7 +58,7 @@ html {
 
 @layer base {
   .font-funnel {
-    font-family: var(--font-funnel-display), sans-serif;
+    font-family: 'FunnelDisplay', sans-serif;
   }
 }
 
