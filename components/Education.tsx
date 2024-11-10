@@ -44,7 +44,7 @@ const certificates = [
   },
   { 
     name: "AI-Powered Performance Ads",
-    issuer: "Meta",
+    issuer: "Google",
     period: "2024",
     description: "AI and machine learning in advertising optimization"
   }
@@ -77,7 +77,6 @@ export default function Education() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 text-emerald-100 mb-6">
-              <p><strong>Faculty:</strong> {education.faculty}</p>
               <p><strong>Major:</strong> {education.major}</p>
               <p><strong>Degree:</strong> {education.degreeType}</p>
               <p><strong>GPA:</strong> {education.gpa}</p>
