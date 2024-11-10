@@ -3,7 +3,7 @@ import { MdWork } from 'react-icons/md'
 
 const experiences = [
   {
-    period: "May 2022 - Present",
+    period: "May 2022 - Nov 2023",
     company: "Starcom Digital (Myanmar)",
     position: "Digital Marketing Manager",
     description: "Leading strategic digital marketing initiatives, managing multi-channel campaigns, and optimizing performance across platforms. Responsible for team management, client relationships, and achieving KPIs.",
