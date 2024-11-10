@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        funnel: ['var(--font-funnel-display)', 'sans-serif'],
+        sans: ['var(--font-inter)'],
+        poppins: ['var(--font-poppins)'],
       },
     },
   },

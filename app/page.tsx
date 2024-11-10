@@ -5,72 +5,11 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'
 import { sendEmail } from './actions'
-
-// Define the components inline to ensure proper component structure
-const Services = () => {
-  return (
-    <section id="services" className="py-20 bg-emerald-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Digital Marketing Services</h2>
-        {/* Services content */}
-      </div>
-    </section>
-  )
-}
-
-const Skills = () => {
-  return (
-    <section id="skills" className="py-20 bg-emerald-950">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Skills & Expertise</h2>
-        {/* Skills content */}
-      </div>
-    </section>
-  )
-}
-
-const Experience = () => {
-  return (
-    <section id="experience" className="py-20 bg-emerald-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
-        {/* Experience content */}
-      </div>
-    </section>
-  )
-}
-
-const Education = () => {
-  return (
-    <section id="education" className="py-20 bg-emerald-950">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Education & Certifications</h2>
-        {/* Education content */}
-      </div>
-    </section>
-  )
-}
-
-const Contact = ({ onSubmit, formStatus }: { 
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  formStatus: { success?: boolean; message?: string } | null;
-}) => {
-  return (
-    <section id="contact" className="py-20 bg-emerald-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
-        <form onSubmit={onSubmit} className="max-w-md mx-auto">
-          {/* Form content */}
-        </form>
-        {formStatus && (
-          <div className={`mt-4 text-center ${formStatus.success ? 'text-green-400' : 'text-red-400'}`}>
-            {formStatus.message}
-          </div>
-        )}
-      </div>
-    </section>
-  )
-}
+import Services from '../components/Services'
+import Skills from '../components/Skills'
+import Experience from '../components/Experience'
+import Education from '../components/Education'
+import Contact from '../components/Contact'
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
@@ -119,7 +58,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4"
+            className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 font-poppins"
           >
             Ye Htet Aung
           </motion.h1>
@@ -127,7 +66,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-xl sm:text-2xl text-emerald-400 mb-3 sm:mb-4"
+            className="text-xl sm:text-2xl text-emerald-400 mb-3 sm:mb-4 font-poppins"
           >
             Digital Marketing Manager
           </motion.h2>
