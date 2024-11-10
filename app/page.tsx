@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'
 import { sendEmail } from './actions'
-import Services from '../components/Services'
-import Skills from '../components/Skills'
-import Experience from '../components/Experience'
-import Education from '../components/Education'
-import Contact from '../components/Contact'
+import Services from '@/components/Services'
+import Skills from '@/components/Skills'
+import Experience from '@/components/Experience'
+import Education from '@/components/Education'
+import Contact from '@/components/Contact'
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
@@ -20,6 +20,13 @@ export default function Home() {
     const result = await sendEmail(formData)
     setFormStatus(result)
   }
+
+  const socialLinks = [
+    { Icon: FaGithub, href: 'https://github.com/devyehtet', label: 'GitHub' },
+    { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/y3htetaung/', label: 'LinkedIn' },
+    { Icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=61559225011515', label: 'Facebook' },
+    { Icon: FaEnvelope, href: 'mailto:info@yehtet.com', label: 'Email' }
+  ]
 
   return (
     <div className="min-h-screen flex flex-col bg-emerald-950 text-white">
@@ -86,12 +93,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex justify-center space-x-4 sm:space-x-6"
           >
-            {[
-              { Icon: FaGithub, href: 'https://github.com/devyehtet', label: 'GitHub' },
-              { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/y3htetaung/', label: 'LinkedIn' },
-              { Icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=61559225011515', label: 'Facebook' },
-              { Icon: FaEnvelope, href: 'mailto:info@yehtet.com', label: 'Email' }
-            ].map(({ Icon, href, label }) => (
+            {socialLinks.map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
