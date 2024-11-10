@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const funnelDisplay = localFont({
+  src: '../public/fonts/FunnelDisplay.woff2',
+  variable: '--font-funnel-display',
+})
 
 export const metadata: Metadata = {
   title: 'Ye Htet Aung | Digital Marketing Manager',
@@ -15,14 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <link
-          rel="icon"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-family='Arial' font-weight='bold' fill='%2310b981'>Y</text></svg>"
-        />
-      </head>
-      <body className={`${inter.className} bg-emerald-950 text-white`}>{children}</body>
+    <html lang="en" className={`scroll-smooth ${funnelDisplay.variable}`}>
+      <body className={`${inter.className} bg-emerald-950 text-white`}>
+        {children}
+      </body>
     </html>
   )
 }

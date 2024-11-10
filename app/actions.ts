@@ -18,7 +18,7 @@ export async function sendEmail(formData: FormData) {
   try {
     await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'your-email@example.com', // Replace with your email
+      to: 'your-email@example.com', // Replace with your actual email
       subject: 'New message from your portfolio site',
       text: `From: ${senderEmail}\n\n${message}`,
     })
