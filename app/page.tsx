@@ -5,11 +5,72 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'
 import { sendEmail } from './actions'
-import Services from '@/components/Services'
-import Skills from '@/components/Skills'
-import Experience from '@/components/Experience'
-import Education from '@/components/Education'
-import Contact from '@/components/Contact'
+
+// Define the components inline to ensure proper component structure
+const Services = () => {
+  return (
+    <section id="services" className="py-20 bg-emerald-900">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">Digital Marketing Services</h2>
+        {/* Services content */}
+      </div>
+    </section>
+  )
+}
+
+const Skills = () => {
+  return (
+    <section id="skills" className="py-20 bg-emerald-950">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">Skills & Expertise</h2>
+        {/* Skills content */}
+      </div>
+    </section>
+  )
+}
+
+const Experience = () => {
+  return (
+    <section id="experience" className="py-20 bg-emerald-900">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
+        {/* Experience content */}
+      </div>
+    </section>
+  )
+}
+
+const Education = () => {
+  return (
+    <section id="education" className="py-20 bg-emerald-950">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">Education & Certifications</h2>
+        {/* Education content */}
+      </div>
+    </section>
+  )
+}
+
+const Contact = ({ onSubmit, formStatus }: { 
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  formStatus: { success?: boolean; message?: string } | null;
+}) => {
+  return (
+    <section id="contact" className="py-20 bg-emerald-900">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
+        <form onSubmit={onSubmit} className="max-w-md mx-auto">
+          {/* Form content */}
+        </form>
+        {formStatus && (
+          <div className={`mt-4 text-center ${formStatus.success ? 'text-green-400' : 'text-red-400'}`}>
+            {formStatus.message}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
@@ -21,18 +82,11 @@ export default function Home() {
     setFormStatus(result)
   }
 
-  const socialLinks = [
-    { Icon: FaGithub, href: 'https://github.com/devyehtet', label: 'GitHub' },
-    { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/y3htetaung/', label: 'LinkedIn' },
-    { Icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=61559225011515', label: 'Facebook' },
-    { Icon: FaEnvelope, href: 'mailto:info@yehtet.com', label: 'Email' }
-  ]
-
   return (
     <div className="min-h-screen flex flex-col bg-emerald-950 text-white">
       <header className="bg-emerald-900 p-4 sticky top-0 z-50">
         <nav className="container mx-auto">
-          <ul className="flex flex-wrap justify-center space-x-2 sm:space-x-4 md:space-x-6 text-sm sm:text-base md:text-lg funnel-display-body">
+          <ul className="flex flex-wrap justify-center space-x-2 sm:space-x-4 md:space-x-6 text-sm sm:text-base md:text-lg">
             {['About', 'Services', 'Skills', 'Experience', 'Education', 'Contact'].map((item) => (
               <li key={item}>
                 <a href={`#${item.toLowerCase()}`} className="hover:text-emerald-300 transition-colors px-2 py-1">
@@ -65,7 +119,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 funnel-display-heading"
+            className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4"
           >
             Ye Htet Aung
           </motion.h1>
@@ -73,7 +127,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-xl sm:text-2xl text-emerald-400 mb-3 sm:mb-4 funnel-display-subheading"
+            className="text-xl sm:text-2xl text-emerald-400 mb-3 sm:mb-4"
           >
             Digital Marketing Manager
           </motion.h2>
@@ -81,7 +135,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-xl sm:max-w-2xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base funnel-display-body"
+            className="max-w-xl sm:max-w-2xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base"
           >
             A seasoned Digital Marketing Expert with extensive experience in crafting and executing 
             data-driven strategies. Specialized in campaign optimization, performance marketing, and 
@@ -93,7 +147,12 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex justify-center space-x-4 sm:space-x-6"
           >
-            {socialLinks.map(({ Icon, href, label }) => (
+            {[
+              { Icon: FaGithub, href: 'https://github.com/devyehtet', label: 'GitHub' },
+              { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/y3htetaung/', label: 'LinkedIn' },
+              { Icon: FaFacebook, href: 'https://www.facebook.com/profile.php?id=61559225011515', label: 'Facebook' },
+              { Icon: FaEnvelope, href: 'mailto:info@yehtet.com', label: 'Email' }
+            ].map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
@@ -115,7 +174,7 @@ export default function Home() {
         <Contact onSubmit={handleSubmit} formStatus={formStatus} />
       </main>
 
-      <footer className="bg-emerald-900 py-4 text-center text-sm sm:text-base funnel-display-body">
+      <footer className="bg-emerald-900 py-4 text-center text-sm sm:text-base">
         <p>&copy; {new Date().getFullYear()} Ye Htet Aung. All rights reserved.</p>
       </footer>
     </div>
