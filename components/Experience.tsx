@@ -16,7 +16,7 @@ const experiences = [
   },
   {
     period: "Nov 2019 - Mar 2022",
-    company: "Senior Operation Manager",
+    company: "Humology",
     position: "Senior Operation Manager",
     description: "Managed team deliverables, established optimization approaches, and ensured high standards of campaign performance. Oversaw daily operations and team coordination.",
     achievements: [
