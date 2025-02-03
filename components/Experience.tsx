@@ -3,6 +3,18 @@ import { MdWork } from 'react-icons/md'
 
 const experiences = [
   {
+    period: "Feb 2025 - Present",
+    company: "MCIX Thailand Agency",
+    position: "Regional Digital Manager",
+    description: "Overseeing digital strategy, campaign execution, and performance optimization across multiple markets. Leading cross-functional teams to drive innovation and achieve business objectives.",
+    achievements: [
+      "Developed and executed high-impact digital marketing strategies",
+      "Managed multi-million-dollar budgets across various digital platforms",
+      "Implemented advanced analytics to improve campaign tracking and ROI measurement",
+      "Led a team of digital marketing professionals to deliver exceptional results"
+    ]
+  },
+  {
     period: "May 2022 - Nov 2023",
     company: "Starcom Digital (Myanmar)",
     position: "Digital Marketing Manager",
