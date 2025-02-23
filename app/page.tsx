@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'
@@ -10,9 +10,17 @@ import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
 import Education from '@/components/Education'
 import Contact from '@/components/Contact'
+import Script from 'next/script'
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('init', '1261329168269692')
+      window.fbq('track', 'PageView')
+    }
+  }, [])
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -23,6 +31,29 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-emerald-950 text-white">
+      {/* Meta Pixel Script */}
+      <Script
+        strategy="afterInteractive"
+        src="https://connect.facebook.net/en_US/fbevents.js"
+        onLoad={() => {
+          window.fbq = window.fbq || function () {
+            window.fbq.callMethod
+              ? window.fbq.callMethod.apply(window.fbq, arguments)
+              : window.fbq.queue.push(arguments)
+          }
+          window.fbq('init', '1261329168269692')
+          window.fbq('track', 'PageView')
+        }}
+      />
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=1261329168269692&ev=PageView&noscript=1"
+        />
+      </noscript>
+
       <header className="bg-emerald-900 p-4 sticky top-0 z-50">
         <nav className="container mx-auto">
           <ul className="flex flex-wrap justify-center space-x-2 sm:space-x-4 md:space-x-6 text-sm sm:text-base md:text-lg">
