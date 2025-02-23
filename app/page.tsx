@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'
@@ -15,13 +15,6 @@ import Script from 'next/script'
 export default function Home() {
   const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('init', '1261329168269692')
-      window.fbq('track', 'PageView')
-    }
-  }, [])
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
@@ -34,25 +27,21 @@ export default function Home() {
       {/* Meta Pixel Script */}
       <Script
         strategy="afterInteractive"
-        src="https://connect.facebook.net/en_US/fbevents.js"
-        onLoad={() => {
-          window.fbq = window.fbq || function () {
-            window.fbq.callMethod
-              ? window.fbq.callMethod.apply(window.fbq, arguments)
-              : window.fbq.queue.push(arguments)
-          }
-          window.fbq('init', '1261329168269692')
-          window.fbq('track', 'PageView')
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1261329168269692');
+            fbq('track', 'PageView');
+          `,
         }}
       />
-      <noscript>
-        <img
-          height="1"
-          width="1"
-          style={{ display: 'none' }}
-          src="https://www.facebook.com/tr?id=1261329168269692&ev=PageView&noscript=1"
-        />
-      </noscript>
 
       <header className="bg-emerald-900 p-4 sticky top-0 z-50">
         <nav className="container mx-auto">
