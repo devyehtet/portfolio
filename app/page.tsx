@@ -76,9 +76,10 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-xl sm:max-w-2xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base"
           >
-            Digital Marketing Expert with extensive experience in crafting and executing 
-            data-driven strategies. Specialized in campaign optimization, performance marketing, and 
-            delivering measurable results across multiple platforms.
+            Digital Marketing Expert with extensive experience in crafting and executing data-driven strategies. 
+            Specialized in campaign optimization, developing conversion-focused campaigns, and maximizing ROAS while delivering measurable results across multiple platforms.
+
+
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
