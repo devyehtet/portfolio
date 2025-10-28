@@ -14,18 +14,7 @@ const experiences = [
       "Led a team of digital marketing professionals to deliver exceptional results"
     ]
   },
-  {
-    period: "May 2022 - Nov 2023",
-    company: "Starcom Digital (Myanmar)",
-    position: "Digital Marketing Manager",
-    description: "Leading strategic digital marketing initiatives, managing multi-channel campaigns, and optimizing performance across platforms. Responsible for team management, client relationships, and achieving KPIs.",
-    achievements: [
-      "Increased client ROI by 45% through strategic campaign optimization",
-      "Led a team of 5 digital marketing specialists",
-      "Implemented new tracking and reporting systems",
-      "Managed budgets exceeding $500,000 annually"
-    ]
-  },
+
   {
     period: "Nov 2019 - Mar 2022",
     company: "Humology",
